@@ -32,6 +32,8 @@
 #ifndef _WRX_PRNT_H
 #define _WRX_PRNT_H
 
+#include "wrx_dll.h"
+
 #if defined(__cplusplus) || defined(c_plusplus)
 extern "C" {
 #endif
@@ -40,7 +42,7 @@ extern "C" {
  *	Prints the states in the NFA to stdout.
  *	For my own development and debugging purposes.
  */
-void wrx_print_nfa(wregex_t *nfa);
+WRX_DLL_EXPORT_IMPORT void wrx_print_nfa(wregex_t *nfa);
 
 /*
  *	Prints an NFA's states in a format that can be used by the
@@ -48,7 +50,7 @@ void wrx_print_nfa(wregex_t *nfa);
  *	Use the following on the command line to draw the graph:
  *	>dot -Tjpg -o nfa.jpg filename
  */
-void wrx_print_dot(wregex_t *nfa, const char *filename);
+WRX_DLL_EXPORT_IMPORT void wrx_print_dot(wregex_t *nfa, const char *filename);
 
 #if defined(__cplusplus) || defined(c_plusplus)
 } /* extern "C" */

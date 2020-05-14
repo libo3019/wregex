@@ -24,7 +24,7 @@
  */
 
 #include "wrxcfg.h"
-
+#include "wregex.h"
 /*
  *	Returns a description of the error code for wrx_comp()'s 'e' parameter or
  *	wrx_exec()'s return value;

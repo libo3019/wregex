@@ -26,9 +26,9 @@
 #include <stdio.h>
 #include <assert.h>
 
-#include "wregex.h"
 #include "wrxcfg.h"
-
+#include "wregex.h"
+#include "wrx_prnt.h"
 /*
  *	Returns a mnemonic for the specific opcode (wrx_state's op member)
  */

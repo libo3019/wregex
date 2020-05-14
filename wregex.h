@@ -29,10 +29,15 @@
 #ifndef _WREGEX_H
 #define _WREGEX_H
 
+#include "wrx_dll.h"
+
 #if defined(__cplusplus) || defined(c_plusplus)
 extern "C" {
 #endif
 
+#ifdef _WIN32
+#define strdup _strdup
+#endif
 /*
  * A single state in the NFA
  */
@@ -99,7 +104,7 @@ typedef struct _wregmatch_t
  *#		{{pattern[ep]}}.\n
  *#	It returns a pointer to the compiled {{wregex_t}} on success, {{NULL}} on failure.
  */
-wregex_t *wrx_comp(const char *pattern, int *e, int *ep);
+WRX_DLL_EXPORT_IMPORT wregex_t *wrx_comp(const char *pattern, int *e, int *ep);
 
 /*@ int wrx_exec(const wregex_t *wreg, const char *str, wregmatch_t subm[], int nsm)
  *#	Pattern matching function.\n
@@ -114,19 +119,19 @@ wregex_t *wrx_comp(const char *pattern, int *e, int *ep);
  *#	Returns 1 on a match, 0 on no match, and < 0 on a error. Use {{wrx_error()}}
  *#		to get a message associated with the error.
  */
-int wrx_exec(const wregex_t *wreg, const char *str, wregmatch_t subm[], int nsm);
+WRX_DLL_EXPORT_IMPORT int wrx_exec(const wregex_t *wreg, const char *str, wregmatch_t subm[], int nsm);
 
 /*@ void wrx_free(wregex_t *wreg)
  *#	Deallocates a {{wregex_t}} object compiled by {{wrx_comp()}}.
  */
-void wrx_free(wregex_t *wreg);
+WRX_DLL_EXPORT_IMPORT void wrx_free(wregex_t *wreg);
 
 /*@ const char *wrx_error(int code)
  *#	Returns a description of an error code.\n
  *#	{{code}} is either the integer pointed to by {{wrx_comp()}}'s {{e}} parameter or
  *#	{{wrx_exec()}}'s return value.\n
  */
-const char *wrx_error(int code);
+WRX_DLL_EXPORT_IMPORT const char *wrx_error(int code);
 
 #if defined(__cplusplus) || defined(c_plusplus)
 } /* extern "C" */

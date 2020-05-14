@@ -3,10 +3,12 @@
 #include <string.h>
 
 /* for getopt() and path functions - non-portable */
+#ifndef _WIN32
 #include <unistd.h>
-
+#else
+#include "getopt.h"
+#endif
 #include "wregex.h"
-
 /* These are the values for the flags parameter to grep() */
 #define INVERT		1
 #define SUBMATCHES	2

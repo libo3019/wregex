@@ -35,9 +35,6 @@
 extern "C" {
 #endif
 
-#ifdef _WIN32
-#define strdup _strdup
-#endif
 /*
  * A single state in the NFA
  */

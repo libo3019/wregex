@@ -1,6 +1,8 @@
 *.o
 *.a
-test
+*.obj
+*.dll
+*.lib
 wgrep
 *.exe
 *.html
